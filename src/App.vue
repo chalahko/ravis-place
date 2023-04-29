@@ -3,28 +3,31 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h1 id="ravi">Ravi Chalahko</h1>
+  <svg width="100" height="600">
+    <defs>
+      <linearGradient id="grad" gradientUnits="userSpaceOnUse" x1="50" x2="50" y1="50" y2="550">
+        <stop offset="5%" stop-color="#547E96" />
+        <stop offset="95%" stop-color="#373052" />
+      </linearGradient>
+    </defs>
+
+    <path id="path" d="M 50 50 v 500" />
+  </svg>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#path {
+  stroke: url(#grad);
+  stroke-width: 3px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+#ravi {
+  background-image: linear-gradient(180deg, #547E96 0%, #373052 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.01em rgba(143,143,143,0.541);
+  font-weight: 400;
 }
 </style>
