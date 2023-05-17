@@ -7,17 +7,20 @@
 <template>
 	<div id="mode" @click="darkMode = !darkMode">
 		<Transition>
-			<img id="sun" v-show="!darkMode" />
+			<img id="sun" v-if="!darkMode"/>
+			<img id="moon" v-else-if="darkMode" />
 		</Transition>
 		<Transition :css="false">
-			<img id="sun-bg" v-show="!darkMode" />
+			<img id="sun-bg" v-if="!darkMode" />
+			<img id="moon-bg" v-else-if="darkMode" />
 		</Transition>
+		<!--
 		<Transition>
-			<img id="moon" v-show="darkMode" />
+			<img id="moon" v-if="darkMode" />
 		</Transition>
 		<Transition :css="false">
-			<img id="moon-bg" v-show="darkMode" />
-		</Transition>
+			<img id="moon-bg" v-if="darkMode" />
+		</Transition>-->
 	</div>
 </template>
 
@@ -95,9 +98,11 @@
 	}
 }
 
-.v-enter-active,
+.v-enter-active {
+	transition: opacity .8s ease-out;
+}
 .v-leave-active {
-  transition: opacity 1s ease;
+  	transition: opacity .8s ease-in;
 }
 
 .v-enter-from,
